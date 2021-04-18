@@ -1,5 +1,6 @@
 import './App.css';
 import Display from "../Display/Display";
+import Controls from "../Controls/Controls";
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -14,22 +15,21 @@ function App() {
     setHeight(window.innerHeight);
   }
 
-  // Handler for button to add a firefly
-  function handleAddFirefly() {
-    const fireflyArray = [...fireflies];
-    fireflyArray.push({
-      x: Math.floor(Math.random() * window.innerWidth),
-      y: Math.floor(Math.random() * window.innerHeight),
-      size: Math.floor(Math.random() * 10) + 5
-    })
-    setFireflies(fireflyArray)
-  }
-
-  // Handler for button to remove a firefly
-  function handleRemoveFirefly() {
-    const fireflyArray = [...fireflies];
-    fireflyArray.pop();
-    setFireflies(fireflyArray);
+  // Function lifts count from Controls component
+  function getCount(newCount) {
+    if (newCount > fireflies.length) {
+      const fireflyArray = [...fireflies];
+      fireflyArray.push({
+        x: Math.floor(Math.random() * window.innerWidth),
+        y: Math.floor(Math.random() * window.innerHeight),
+        size: Math.floor(Math.random() * 10) + 5
+      })
+      setFireflies(fireflyArray)
+    } else {
+      const fireflyArray = [...fireflies];
+      fireflyArray.pop();
+      setFireflies(fireflyArray);
+    }
   }
 
   // Listen for any changes to display size
@@ -46,8 +46,7 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={handleAddFirefly}>Add Firefly</button>
-      <button onClick={handleRemoveFirefly}>Remove Firefly</button>
+      <Controls fireflyCount={fireflies.length} getCount={getCount} />
       <Display fireflies={fireflies} />
     </div>
   );

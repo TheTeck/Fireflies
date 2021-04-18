@@ -1,0 +1,6 @@
+.firefly {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgb(253, 197, 65);
+    box-shadow: 0 0 15px rgba(253, 197, 65, .8), 0 0 40px rgba(253, 208, 102, 0.676);
+}

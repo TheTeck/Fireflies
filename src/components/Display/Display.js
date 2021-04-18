@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Display.css";
+import Firefly from "../Firefly/Firefly";
 
 export default function Display ({ fireflies }) {
 
@@ -7,7 +8,7 @@ export default function Display ({ fireflies }) {
         <div className="display">
             {
                 fireflies.map((firefly, index) => {
-                    return <div className="firefly" style={{ top: firefly.y, left: firefly.x, width: firefly.size, height: firefly.size }}></div>
+                    return <Firefly details={ firefly } />
                 })
             }
         </div>
