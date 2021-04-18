@@ -1,7 +1,7 @@
 import "./Firefly.css";
 import { useEffect, useState } from "react";
 
-export default function Firefly ({ details }) {
+export default function Firefly ({ details, width, height }) {
 
     const [pull, setPull] = useState(1);
     const [direction, setDirection] = useState(details.direction);
@@ -33,6 +33,7 @@ export default function Firefly ({ details }) {
     }
 
     function calculateNewDirection() {
+        // Give the firefly a 4 in 5 chance of turning in the same direction
         const dirChoice = Math.floor(Math.random() * 5);
         if (pull === -1) {
             if (dirChoice) {
@@ -51,6 +52,31 @@ export default function Firefly ({ details }) {
         }
     }
 
+    // Redirect firefly if it goes out of the bounds of the screen
+    function boundsRedirect() {
+        if (styles.left >= (width + 30)) {
+            setStyles({
+                ...styles,
+                left: -40
+            })
+        } else if (styles.left <= -50) {
+            setStyles({
+                ...styles,
+                left: width + 20
+            })
+        } else if (styles.top >= (height + 30)) {
+            setStyles({
+                ...styles,
+                top: -40
+            })
+        } else if (styles.top <= -50) {
+            setStyles({
+                ...styles,
+                top: height + 20
+            })
+        }
+    }
+
     function updatePosition() {
         const dirX = calculateX();
         const dirY = calculateY();
@@ -60,6 +86,7 @@ export default function Firefly ({ details }) {
             top: styles.top + dirY,
             left: styles.left + dirX,
         })
+        boundsRedirect();
     }
 
     // mounting and unmounting with timer
@@ -73,4 +100,5 @@ export default function Firefly ({ details }) {
 
 
     return <div className="firefly" style={ styles }></div>
+
 }

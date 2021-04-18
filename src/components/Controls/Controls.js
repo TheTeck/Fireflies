@@ -14,6 +14,7 @@ export default function Controls ( { fireflyCount, getCount }) {
         <div className="controls">
             <button onClick={handleAddFirefly}>Add Firefly</button>
             <button onClick={handleRemoveFirefly}>Remove Firefly</button>
+            <p className="count">{fireflyCount}</p>
         </div>
     )
 }

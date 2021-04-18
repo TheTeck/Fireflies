@@ -49,7 +49,7 @@ function App() {
   return (
     <div className="App">
       <Controls fireflyCount={fireflies.length} getCount={getCount} />
-      <Display fireflies={fireflies} />
+      <Display fireflies={fireflies} width={width} height={height} />
     </div>
   );
 }
