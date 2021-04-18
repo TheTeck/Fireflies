@@ -3,13 +3,16 @@ import { useEffect, useState } from "react";
 
 export default function Firefly ({ details, width, height }) {
 
+    const [hue, setHue] = useState(Math.floor(Math.random() * 256))
     const [pull, setPull] = useState(1);
     const [direction, setDirection] = useState(details.direction);
     const [styles, setStyles] = useState({
         top: details.y,
         left: details.x,
         width: details.size,
-        height: details.size
+        height: details.size,
+        backgroundColor: `hsl(${hue}, 98%, 62%)`,
+        boxShadow: `0 0 15px hsla(${hue}, 98%, 62%, 0.9), 0 0 40px hsla(${hue}, 97%, 70%, 0.776)`
     });
 
     function calculateY() {
@@ -77,14 +80,18 @@ export default function Firefly ({ details, width, height }) {
         }
     }
 
-    function updatePosition() {
+    function updateFirefly() {
         const dirX = calculateX();
         const dirY = calculateY();
+        const flickerOdds = Math.floor(Math.random() * 10);
         setDirection(calculateNewDirection());
         setStyles({
             ...styles,
             top: styles.top + dirY,
             left: styles.left + dirX,
+            boxShadow: flickerOdds ? 
+                `0 0 15px hsla(${hue}, 98%, 62%, 0.9), 0 0 40px hsla(${hue}, 97%, 70%, 0.776)` :
+                `0 0 5px hsla(${hue}, 98%, 62%, 0.9), 0 0 13px hsla(${hue}, 97%, 70%, 0.776)`
         })
         boundsRedirect();
     }
@@ -92,7 +99,7 @@ export default function Firefly ({ details, width, height }) {
     // mounting and unmounting with timer
     useEffect(() => {
         const interval = setInterval(() => {
-            updatePosition();
+            updateFirefly();
         }, 50);
         return () => clearInterval(interval);
     })
