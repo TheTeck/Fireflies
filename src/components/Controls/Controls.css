@@ -16,3 +16,7 @@
 .randomCheckbox > * {
     padding: 7px;
 }
+
+.count {
+    border: 1px solid rgb(253, 197, 65);
+}
