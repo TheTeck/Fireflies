@@ -41,17 +41,17 @@ export default function Firefly ({ details, width, height, randomColor }) {
         const dirChoice = Math.floor(Math.random() * 5);
         if (pull === -1) {
             if (dirChoice) {
-                return direction === 357 ? 0 : direction + 3;
+                return direction === 355 ? 0 : direction + 5;
             } else {
                 setPull(1)
-                return direction === 0 ? 357 : direction - 3;
+                return direction === 0 ? 355 : direction - 5;
             }
         } else if (pull === 1) {
             if (dirChoice) {
-                return direction === 0 ? 357 : direction - 3;
+                return direction === 0 ? 355 : direction - 5;
             } else {
                 setPull(-1)
-                return direction === 357 ? 0 : direction + 3;
+                return direction === 355 ? 0 : direction + 5;
             }
         }
     }

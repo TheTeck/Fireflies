@@ -24,7 +24,7 @@ function App() {
         x: Math.floor(Math.random() * window.innerWidth),
         y: Math.floor(Math.random() * window.innerHeight),
         size: Math.floor(Math.random() * 10) + 5,
-        direction: Math.floor(Math.random() * 120) * 3
+        direction: Math.floor(Math.random() * 72) * 5
       })
       setFireflies(fireflyArray)
     } else {
