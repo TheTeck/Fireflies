@@ -6,9 +6,13 @@
 .controls > * {
     margin: 10px;
     padding: 5px;
+    display: inline;
 }
 
-.count {
+.count, label {
     color: rgb(253, 197, 65);
-    display:inline;
+}
+
+.randomCheckbox > * {
+    padding: 7px;
 }

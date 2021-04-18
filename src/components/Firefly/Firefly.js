@@ -1,9 +1,10 @@
 import "./Firefly.css";
 import { useEffect, useState } from "react";
 
-export default function Firefly ({ details, width, height }) {
+export default function Firefly ({ details, width, height, randomColor }) {
 
-    const [hue, setHue] = useState(Math.floor(Math.random() * 256))
+    const [hue, setHue] = useState(randomColor ? Math.floor(Math.random() * 256) : 42);
+    const [allowRandom, setAllowRandom] = useState(!randomColor);
     const [pull, setPull] = useState(1);
     const [direction, setDirection] = useState(details.direction);
     const [styles, setStyles] = useState({
@@ -80,15 +81,27 @@ export default function Firefly ({ details, width, height }) {
         }
     }
 
+    function randomColorLogic() {
+        if (!randomColor && !allowRandom) {
+            setHue(42);
+            setAllowRandom(true);
+        } else if (randomColor && allowRandom) {
+            setHue(Math.floor(Math.random() * 256))
+            setAllowRandom(false);
+        }
+    }
+
     function updateFirefly() {
         const dirX = calculateX();
         const dirY = calculateY();
         const flickerOdds = Math.floor(Math.random() * 10);
         setDirection(calculateNewDirection());
+        randomColorLogic();
         setStyles({
             ...styles,
             top: styles.top + dirY,
             left: styles.left + dirX,
+            backgroundColor: `hsl(${hue}, 98%, 62%)`,
             boxShadow: flickerOdds ? 
                 `0 0 15px hsla(${hue}, 98%, 62%, 0.9), 0 0 40px hsla(${hue}, 97%, 70%, 0.776)` :
                 `0 0 5px hsla(${hue}, 98%, 62%, 0.9), 0 0 13px hsla(${hue}, 97%, 70%, 0.776)`

@@ -8,6 +8,7 @@ function App() {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
   const [fireflies, setFireflies] = useState([]);
+  const [randomColor, setRandomColor] = useState(false);
 
   // Update the width and height state of display
   function updateSize() {
@@ -33,6 +34,11 @@ function App() {
     }
   }
 
+  // Function to handle clicks on the random color checkbox
+  function getRandomState(isRandom) {
+    setRandomColor(isRandom);
+  }
+
   // Listen for any changes to display size
   useEffect(() => {
     window.addEventListener('resize', updateSize);
@@ -48,8 +54,8 @@ function App() {
 
   return (
     <div className="App">
-      <Controls fireflyCount={fireflies.length} getCount={getCount} />
-      <Display fireflies={fireflies} width={width} height={height} />
+      <Controls fireflyCount={fireflies.length} getCount={getCount} getRandomState={getRandomState} />
+      <Display fireflies={fireflies} width={width} height={height} randomColor={randomColor} />
     </div>
   );
 }
