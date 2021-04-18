@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import "./Controls.css";
 
 export default function Controls ( { fireflyCount, getCount }) {
