@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Fireflies/static/css/main.e1d3491b.chunk.css",
+    "main.js": "/Fireflies/static/js/main.caac7b8f.chunk.js",
+    "main.js.map": "/Fireflies/static/js/main.caac7b8f.chunk.js.map",
+    "runtime-main.js": "/Fireflies/static/js/runtime-main.3d491e62.js",
+    "runtime-main.js.map": "/Fireflies/static/js/runtime-main.3d491e62.js.map",
+    "static/js/2.ca3200e8.chunk.js": "/Fireflies/static/js/2.ca3200e8.chunk.js",
+    "static/js/2.ca3200e8.chunk.js.map": "/Fireflies/static/js/2.ca3200e8.chunk.js.map",
+    "static/js/3.d787afe9.chunk.js": "/Fireflies/static/js/3.d787afe9.chunk.js",
+    "static/js/3.d787afe9.chunk.js.map": "/Fireflies/static/js/3.d787afe9.chunk.js.map",
+    "index.html": "/Fireflies/index.html",
+    "static/css/main.e1d3491b.chunk.css.map": "/Fireflies/static/css/main.e1d3491b.chunk.css.map",
+    "static/js/2.ca3200e8.chunk.js.LICENSE.txt": "/Fireflies/static/js/2.ca3200e8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3d491e62.js",
+    "static/js/2.ca3200e8.chunk.js",
+    "static/css/main.e1d3491b.chunk.css",
+    "static/js/main.caac7b8f.chunk.js"
+  ]
+}
